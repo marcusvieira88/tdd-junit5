@@ -42,9 +42,9 @@ public class BankAccountTest {
     @ParameterizedTest
     @ValueSource(doubles = {100, 500, 1000})
     public void shouldIncreaseBalanceWhenDepositMade(Double amount) {
-        BankAccount bankAccount = new BankAccount(1);
+        BankAccount bankAccount = new BankAccount(1, 1000D);
         bankAccountService.deposit(bankAccount, amount);
-        assertEquals(bankAccount.getBalance(), amount);
+        assertEquals(bankAccount.getBalance(), Double.valueOf(1000D + amount));
     }
 
     @Test
